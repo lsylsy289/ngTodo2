@@ -1,5 +1,22 @@
-<p>
-  menu1, menu2, menu3
-</p>
+<mat-toolbar color="primary">
+  <span>ngTodo</span>
+  <button mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item routerLink="/">
+      <mat-icon>dialpad</mat-icon>
+      <span>home</span>
+    </button>
+    <button mat-menu-item routerLink="/jquery">
+      <mat-icon>voicemail</mat-icon>
+      <span>jquery</span>
+    </button>
+    <button mat-menu-item routerLink="angular">
+      <mat-icon>chat_bubble_outline</mat-icon>
+      <span>angular</span>
+    </button>
+  </mat-menu>
+</mat-toolbar>
 
 <router-outlet></router-outlet>

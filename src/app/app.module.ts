@@ -8,7 +8,8 @@ import { HomeComponent } from './home/home.component';
 import { JqueryComponent } from './jquery/jquery.component';
 import {RouterModule} from '@angular/router';
 import {routes} from './app-routing.module';
-
+import {MatButtonModule, MatIconModule, MatMenuModule, MatToolbarModule} from '@angular/material';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,12 @@ import {routes} from './app-routing.module';
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes)
+    BrowserAnimationsModule,
+    RouterModule.forRoot(routes),
+    MatToolbarModule,
+    MatMenuModule,
+    MatIconModule,
+    MatButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
