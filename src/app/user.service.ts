@@ -13,4 +13,8 @@ export class UserService {
       'Content-Type': 'application/json'
     });
   }
+
+  getTodoList() {
+    return this.http.get(this.SERVER + '/api/todo');
+  }
 }
