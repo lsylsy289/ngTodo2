@@ -1,0 +1,28 @@
+$buttonColor: #337ab7;
+$buttonDark: darken($buttonColor, 10%);
+$buttonDarker: darken($buttonDark, 10%);
+
+// mixin 만들기
+@mixin transform($px_1, $px_2) {
+  -webkit-transform: translate($px_1, $px_2);
+  -moz-transform: translate($px_1, $px_2);
+  -ms-transform: translate($px_1, $px_2);
+  -o-transform: translate($px_1, $px_2);
+  transform: translate($px_1, $px_2);
+}
+
+button.active {
+  background-color: $buttonColor;
+  border: 0;
+  padding: 0.5rem;
+  color: white;
+  box-shadow: 4px 4px 6px $buttonDark;
+  &:hover {
+    background: $buttonDark;
+    box-shadow: 4px 4px 6px $buttonDarker;
+  }
+  &:active {
+    box-shadow: none;
+    @include transform(4px, 4px);
+  }
+}
