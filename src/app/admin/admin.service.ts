@@ -17,4 +17,8 @@ export class AdminService {
   findNews(params: any) {
     return this.http.post(this.SERVER + '/api/newsList', JSON.stringify(params), {headers: this.headers});
   }
+
+  findOneNews(news_id: number) {
+    return this.http.get(this.SERVER + `/api/news?news_id=${news_id}`);
+  }
 }
