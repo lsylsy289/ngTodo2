@@ -9,7 +9,8 @@ import { JqueryComponent } from './jquery/jquery.component';
 import {RouterModule} from '@angular/router';
 import {routes} from './app-routing.module';
 import {
-  MatButtonModule, MatCardModule, MatFormFieldModule, MatIconModule, MatInputModule, MatMenuModule,
+  MatButtonModule, MatCardModule, MatCheckboxModule, MatFormFieldModule, MatIconModule, MatInputModule, MatMenuModule,
+  MatPaginatorModule,
   MatToolbarModule
 } from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -18,6 +19,8 @@ import { AngularComponent } from './angular/angular.component';
 import {UserService} from './user.service';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
+import {HighlightDirective } from './highlight.directive';
+import {MydatePipe } from './mydate.pipe';
 
 
 @NgModule({
@@ -26,7 +29,9 @@ import {FormsModule} from '@angular/forms';
     IndexComponent,
     HomeComponent,
     JqueryComponent,
-    AngularComponent
+    AngularComponent,
+    HighlightDirective,
+    MydatePipe
   ],
   imports: [
     BrowserModule,
@@ -42,6 +47,7 @@ import {FormsModule} from '@angular/forms';
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
+    MatCheckboxModule,
   ],
   providers: [UserService],
   bootstrap: [AppComponent]
