@@ -8,9 +8,10 @@ import {TodoVo} from '../domain/todo.vo';
   styleUrls: ['./angular.component.scss']
 })
 export class AngularComponent implements OnInit {
-  todoList: Array<TodoVo>;
+  newTodo: TodoVo = new TodoVo(); // 할일 추가를 위한 모델 데이터
+  todoList: Array<TodoVo>; // 할일 목록
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService) {}
 
   ngOnInit() {
     this.userService.getTodoList()
@@ -20,4 +21,11 @@ export class AngularComponent implements OnInit {
       });
   }
 
+  addTodo() {
+    this.userService.addTodo(this.newTodo).subscribe((body: TodoVo) => {
+      console.log(body);
+      this.todoList.unshift(body); // Array 가장 앞에 추가
+      this.newTodo = new TodoVo(); // 폼을 초기화
+    });
+  }
 }

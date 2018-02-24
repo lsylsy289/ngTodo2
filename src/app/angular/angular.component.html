@@ -1,3 +1,13 @@
+<form #myForm="ngForm" (ngSubmit)="addTodo()">
+  <div fxLayout="row" fxLayoutAlign="center start">
+    <mat-form-field fxFlex="4 1 auto">
+      <input matInput [(ngModel)]="newTodo.todo" placeholder="할일" id="input_todo" required #name name="todo">
+      <mat-hint align="start" style="color: red;">{{!name.value? '할일을 입력하세요' : ''}}</mat-hint>
+    </mat-form-field>
+    <button mat-raised-button color="primary" fxFlex="1 1 auto" class="active" type="submit" [disabled]="!myForm.form.valid">추가</button>
+  </div>
+</form>
+
 <div class="table mt-2">
   <div class="tr">
     <div class="th">완료</div>
