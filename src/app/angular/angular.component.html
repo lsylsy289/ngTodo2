@@ -1,3 +1,18 @@
-<p>
-  angular works!
-</p>
+<div class="table mt-2">
+  <div class="tr">
+    <div class="th">완료</div>
+    <div class="th">todo</div>
+    <div class="th">생성일</div>
+    <div class="th">수정일</div>
+    <div class="th">수정및삭제</div>
+  </div>
+  <div class="tr" *ngFor="let item of todoList">
+    <div class="td">{{item.isFinished ? '완료' : '미완료'}}</div>
+    <div class="td">{{item.todo}}</div>
+    <div class="td">{{item.created}}</div>
+    <div class="td">{{item.updated}}</div>
+    <div class="td">
+      <button mat-raised-button color="warn">삭제</button>
+    </div>
+  </div>
+</div>
