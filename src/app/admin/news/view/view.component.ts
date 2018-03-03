@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {AdminService} from '../../admin.service';
+import {NewsVO} from '../../../domain/news.vo';
 
 @Component({
   selector: 'app-view',
@@ -8,6 +9,7 @@ import {AdminService} from '../../admin.service';
   styleUrls: ['./view.component.scss']
 })
 export class ViewComponent implements OnInit {
+  public news: NewsVO;
 
   constructor(private route: ActivatedRoute, private adminService: AdminService) {
     this.route.params.subscribe(params => {
@@ -23,6 +25,9 @@ export class ViewComponent implements OnInit {
 
   findOneNews(news_id: number) {
     this.adminService.findOneNews(news_id)
-      .subscribe(body => console.log(body));
+      .subscribe((body: NewsVO) => {
+        console.log(body);
+        this.news = body;
+      });
   }
 }
