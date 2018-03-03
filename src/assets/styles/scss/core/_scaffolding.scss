@@ -68,6 +68,9 @@ bdo[dir=ltr] {
   unicode-bidi: bidi-override;
 }
 
+.mat-block {
+  width: 100%;
+}
 
 .mat-card.settings-panel {
   position: fixed;

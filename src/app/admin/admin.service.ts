@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {environment} from '../../environments/environment';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {NewsVO} from '../domain/news.vo';
 
 @Injectable()
 export class AdminService {
@@ -20,5 +21,17 @@ export class AdminService {
 
   findOneNews(news_id: number) {
     return this.http.get(this.SERVER + `/api/news?news_id=${news_id}`);
+  }
+
+  addNews(news: NewsVO) {
+    return this.http.post(this.SERVER + '/api/newsList', news, {headers: this.headers});
+  }
+
+  imageUpload(formData: FormData) {
+    const headers = new HttpHeaders();
+    // headers.append('Content-Type', 'multipart/form-data'); //브라우저가 자동 생성함.
+    headers.append('Accept', 'application/json');
+
+    return this.http.post(this.SERVER + '/api/imageUpload', formData, {headers: headers});
   }
 }
