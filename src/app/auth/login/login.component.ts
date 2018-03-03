@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {UserService} from '../../user.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {MemberVo} from '../../domain/member.vo';
+import {AuthGuardService} from "../auth-guard.service";
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,7 @@ export class LoginComponent implements OnInit {
   naverUrl: string;
   member = new MemberVo();
 
-  constructor(private userService: UserService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private userService: UserService, private route: ActivatedRoute, private router: Router, private authGuard: AuthGuardService) { }
 
   ngOnInit() {
     this.userService.getSocial('naver2')
@@ -26,11 +27,11 @@ export class LoginComponent implements OnInit {
       if (result === 0) { // 로그인 성공, 회원정보 있음
       console.log('login success:' + params['token']);
       localStorage.setItem('token', params['token']);
-      // if (this.authGuard.redirectUrl) {
-      // this.router.navigateByUrl(this.authGuard.redirectUrl);
-      // } else {
+      if (this.authGuard.redirectUrl) {
+      this.router.navigateByUrl(this.authGuard.redirectUrl);
+      } else {
        this.router.navigateByUrl('/');
-      // }
+      }
       } else if (result === 100) { // 회원 정보 없음, 회원가입페이지 이동
       console.log('login fail');
       this.member.join_path = params['join_path'];
