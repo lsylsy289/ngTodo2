@@ -3,6 +3,9 @@ import {IndexComponent} from './index/index.component';
 import {JqueryComponent} from './jquery/jquery.component';
 import {HomeComponent} from './home/home.component';
 import {AngularComponent} from './angular/angular.component';
+import {LoginComponent} from './auth/login/login.component';
+import {RegisterComponent} from './auth/register/register.component';
+import {NicknameComponent} from './nickname/nickname.component';
 
 export const routes: Routes = [
   // 사용자 화면
@@ -10,9 +13,11 @@ export const routes: Routes = [
     {path: '', component: HomeComponent},
     {path: 'jquery', component: JqueryComponent},
     {path: 'angular', component: AngularComponent},
+    {path: 'login', component: LoginComponent},
+    {path: 'register', component: RegisterComponent},
+    {path: 'nickname', component: NicknameComponent},
   ]},
 
   // 관리자 화면
-  { path: 'admin', loadChildren: 'app/admin/admin.module#AdminModule'}
-
+  {path: 'admin', loadChildren: 'app/admin/admin.module#AdminModule'}
 ];

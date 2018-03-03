@@ -11,16 +11,21 @@ import {routes} from './app-routing.module';
 import {
   MatButtonModule, MatCardModule, MatCheckboxModule, MatFormFieldModule, MatIconModule, MatInputModule, MatMenuModule,
   MatPaginatorModule,
-  MatToolbarModule
+  MatToolbarModule,
+  MatDatepickerModule,
 } from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import { AngularComponent } from './angular/angular.component';
 import {UserService} from './user.service';
 import {HttpClientModule} from '@angular/common/http';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HighlightDirective } from './highlight.directive';
 import {MydatePipe } from './mydate.pipe';
+import { LoginComponent } from './auth/login/login.component';
+import { RegisterComponent } from './auth/register/register.component';
+import { NicknameComponent } from './nickname/nickname.component';
+import {MatNativeDateModule} from '@angular/material';
 
 
 @NgModule({
@@ -31,7 +36,10 @@ import {MydatePipe } from './mydate.pipe';
     JqueryComponent,
     AngularComponent,
     HighlightDirective,
-    MydatePipe
+    MydatePipe,
+    LoginComponent,
+    RegisterComponent,
+    NicknameComponent
   ],
   imports: [
     BrowserModule,
@@ -48,6 +56,9 @@ import {MydatePipe } from './mydate.pipe';
     MatFormFieldModule,
     MatInputModule,
     MatCheckboxModule,
+    ReactiveFormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
   providers: [UserService],
   bootstrap: [AppComponent]

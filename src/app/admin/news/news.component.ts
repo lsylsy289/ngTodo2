@@ -29,7 +29,6 @@ export class NewsComponent implements OnInit {
         }
       }
     });
-
   }
 
   findNews() {
