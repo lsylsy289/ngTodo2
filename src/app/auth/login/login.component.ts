@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {UserService} from "../../user.service";
-import {ActivatedRoute, Router} from "@angular/router";
-import {MemberVo} from "../../domain/member.vo";
+import {UserService} from '../../user.service';
+import {ActivatedRoute, Router} from '@angular/router';
+import {MemberVo} from '../../domain/member.vo';
 
 @Component({
   selector: 'app-login',

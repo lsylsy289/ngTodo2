@@ -9,10 +9,9 @@ import { JqueryComponent } from './jquery/jquery.component';
 import {RouterModule} from '@angular/router';
 import {routes} from './app-routing.module';
 import {
-  MatButtonModule, MatCardModule, MatCheckboxModule, MatFormFieldModule, MatIconModule, MatInputModule, MatMenuModule,
-  MatPaginatorModule,
-  MatToolbarModule,
-  MatDatepickerModule,
+  MatButtonModule, MatCardModule, MatCheckboxModule, MatDatepickerModule, MatFormFieldModule, MatIconModule, MatInputModule, MatMenuModule,
+  MatNativeDateModule, MatSnackBarModule,
+  MatToolbarModule
 } from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FlexLayoutModule} from '@angular/flex-layout';
@@ -20,12 +19,12 @@ import { AngularComponent } from './angular/angular.component';
 import {UserService} from './user.service';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {HighlightDirective } from './highlight.directive';
-import {MydatePipe } from './mydate.pipe';
+import { HighlightDirective } from './highlight.directive';
+import { MydatePipe } from './mydate.pipe';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { NicknameComponent } from './nickname/nickname.component';
-import {MatNativeDateModule} from '@angular/material';
+import {AuthGuardService} from './auth/auth-guard.service';
 
 
 @NgModule({
@@ -45,6 +44,7 @@ import {MatNativeDateModule} from '@angular/material';
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(routes),
     HttpClientModule,
     FlexLayoutModule,
@@ -56,11 +56,11 @@ import {MatNativeDateModule} from '@angular/material';
     MatFormFieldModule,
     MatInputModule,
     MatCheckboxModule,
-    ReactiveFormsModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatSnackBarModule,
   ],
-  providers: [UserService],
+  providers: [UserService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
