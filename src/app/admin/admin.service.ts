@@ -24,7 +24,11 @@ export class AdminService {
   }
 
   addNews(news: NewsVO) {
-    return this.http.post(this.SERVER + '/api/newsList', news, {headers: this.headers});
+    return this.http.post(this.SERVER + '/api/news', news, {headers: this.headers});
+  }
+
+  removeNews(news_id: number) {
+    return this.http.delete(this.SERVER + `/api/news?news_id=${news_id}`);
   }
 
   imageUpload(formData: FormData) {

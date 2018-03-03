@@ -15,21 +15,19 @@ export class WriteComponent implements OnInit {
   news = new NewsVO(); // 입력폼과 바인딩하는 객체
   fileList: FileList;
 
-  constructor(private adminService: AdminService, private snackBar: MatSnackBar, private router: Router) {
-
-  }
+  constructor(private adminService: AdminService, private snackBar: MatSnackBar,
+              private router: Router) { }
 
   ngOnInit() {
-
   }
 
   addNews() {
     this.adminService.addNews(this.news)
       .subscribe((body: ResultVo) => {
         console.log(body);
-        // 정상적인 처리가 될 경우 스낵바로 메세지 띄우고, 목록으로 돌아가기
+        // 정상적인 처리가 될 경우 스낵바로 메시지 띄우고, 목록으로 돌아가기
         if (body.result === 0) {
-          this.snackBar.open('등록되었습니다.', null, {duration: 2000});
+          this.snackBar.open('등록되었습니다', null, {duration: 2000});
           this.router.navigateByUrl('/admin/news');
         }
       });
